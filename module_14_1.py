@@ -16,9 +16,10 @@ cursor.execute("CREATE INDEX IF NOT EXISTS idx_email ON Users(email)")
 # for i in range(1, 11):
 #     cursor.execute("INSERT INTO Users VALUES (?, ?, ?, ?, ?)", (i, f"User{i}", f"example{i}@gmail.com", i * 10, "1000"))
 
-# for i in range(2, 11):
-#     if i % 2 == 0:
-#         cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, i))
+
+for i in range(0, 9, 2):
+
+        cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, i + 1))
 for i in range(1, 11, 3):
     cursor.execute("DELETE FROM Users WHERE id = ?", (i,))
 connection.commit()
